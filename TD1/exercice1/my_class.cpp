@@ -1,6 +1,6 @@
 #include "my_class.h"
 
-void My_class::my_class(string _s):s(_s){}
+My_class::My_class(string _s):s(_s){}
 
 void My_class::print_my_element(){
     cout << s << endl;

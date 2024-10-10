@@ -1,37 +1,54 @@
 #include "Complex2D.h"
 
 Complex2D::Complex2D(double _re, double _img):re(_re),img(_img)
-{
-}
+{}
 
 Complex2D::Complex2D(double _nbr):re(_nbr),img(_nbr)
-{
-}
+{}
 
 Complex2D::Complex2D(Complex2D &complex):re(complex.re),img(complex.img)
-{
-}
+{}
 
-void setRe(const double newRe){
-    re(newRe);
-}
-    
-
-    
-void setImg(const double newImg){
-    img(newImg);
-}
-
-
-
-double getRe(){
-    return this->re;
+void Complex2D::setRe(const double newRe){
+    re=newRe;
 }
     
+void Complex2D::setImg(double newImg){
+    img=newImg;
+}
+
+double Complex2D::getRe()const{
+    return re;
+}
     
-    
-double getImg(){
+double Complex2D::getImg()const{
     return this->img;
 }
 
-Complex2D Complex2D::operator +(const Complex2D &c) const;
+
+
+Complex2D Complex2D::symetric(const Complex2D &c)const{
+    Complex2D symComplex = Complex2D(-c.getRe(),-c.getImg());
+    return symComplex;
+}
+
+Complex2D Complex2D::inverse(const Complex2D &c)const{
+    Complex2D invComplex = Complex2D()
+}
+
+Complex2D Complex2D::operator +(const Complex2D &c)const{
+    Complex2D newComplex = Complex2D(re + c.getRe(), img + c.getImg());
+    return newComplex;
+}
+
+Complex2D Complex2D::operator -(const Complex2D &c) const{
+    return *this + symetric(c);
+}
+
+Complex2D Complex2D::operator *(const Complex2D &c) const{
+    Complex2D newComplex = Complex2D(re * c.getRe(), img * c.getImg());
+    return newComplex;
+}
+
+Complex2D Complex2D::operator /(const Complex2D &c) const{
+}

@@ -19,7 +19,14 @@ public:
     void setImg(double newImg);
     double getRe()const;
     double getImg()const;
-    Complex2D operator +(const Complex2D &c) 
+    Complex2D symetric(const Complex2D &c)const;
+    Complex2D inverse(const Complex2D &c)const;
+    Complex2D operator +(const Complex2D &c)const;
+    Complex2D operator -(const Complex2D &c)const;
+    Complex2D operator *(const Complex2D &c)const;
+    Complex2D operator /(const Complex2D &c)const;
+    bool operator <(const Complex2D &c)const;
+    bool operator >(const Complex2D &c)const;
 };
 
 
