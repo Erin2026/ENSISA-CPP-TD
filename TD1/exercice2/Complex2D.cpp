@@ -22,10 +22,17 @@ double Complex2D::getRe()const{
 }
     
 double Complex2D::getImg()const{
-    return this->img;
+    return img;
 }
 
+double module(const Complex2D &c){
+    return sqrt(c.re*c.re + c.img*c.img);
+}
 
+Complex2D conjug(const Complex2D &c){
+    Complex2D conjComplex = Complex2D(c.getRe(),-c.getImg());
+    return conjComplex;
+}
 
 Complex2D Complex2D::symetric(const Complex2D &c)const{
     Complex2D symComplex = Complex2D(-c.getRe(),-c.getImg());
@@ -33,7 +40,10 @@ Complex2D Complex2D::symetric(const Complex2D &c)const{
 }
 
 Complex2D Complex2D::inverse(const Complex2D &c)const{
-    Complex2D invComplex = Complex2D()
+    Complex2D conjComplex = conjug(c);
+    double norm = module(c); 
+    Complex2D invComplex = Complex2D(conjComplex.getRe()/(norm*norm),conjComplex.getImg()/(norm*norm));
+    return invComplex;
 }
 
 Complex2D Complex2D::operator +(const Complex2D &c)const{
@@ -42,7 +52,8 @@ Complex2D Complex2D::operator +(const Complex2D &c)const{
 }
 
 Complex2D Complex2D::operator -(const Complex2D &c) const{
-    return *this + symetric(c);
+    Complex2D newComplex = Complex2D(re - c.getRe(), img - c.getImg());
+    return newComplex;
 }
 
 Complex2D Complex2D::operator *(const Complex2D &c) const{
@@ -51,4 +62,6 @@ Complex2D Complex2D::operator *(const Complex2D &c) const{
 }
 
 Complex2D Complex2D::operator /(const Complex2D &c) const{
+    Complex2D newComplex = Complex2D(re / c.getRe(), img / c.getImg());
+    return newComplex;
 }

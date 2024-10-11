@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 using namespace std;
-
 
 class Complex2D
 {
@@ -19,6 +19,8 @@ public:
     void setImg(double newImg);
     double getRe()const;
     double getImg()const;
+    friend Complex2D conjug(const Complex2D &c);
+    friend double module(const Complex2D &c);
     Complex2D symetric(const Complex2D &c)const;
     Complex2D inverse(const Complex2D &c)const;
     Complex2D operator +(const Complex2D &c)const;
