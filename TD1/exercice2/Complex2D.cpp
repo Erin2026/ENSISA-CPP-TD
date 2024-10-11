@@ -57,11 +57,19 @@ Complex2D Complex2D::operator -(const Complex2D &c) const{
 }
 
 Complex2D Complex2D::operator *(const Complex2D &c) const{
-    Complex2D newComplex = Complex2D(re * c.getRe(), img * c.getImg());
+    Complex2D newComplex = Complex2D(re * c.getRe() - img * c.getImg(), re * c.getImg() + img * c.getRe());
     return newComplex;
 }
 
 Complex2D Complex2D::operator /(const Complex2D &c) const{
     Complex2D newComplex = Complex2D(re / c.getRe(), img / c.getImg());
     return newComplex;
+}
+
+bool Complex2D::operator < (const Complex2D &c)const{
+    return module(*this) < module(c);
+}
+
+bool Complex2D::operator > (const Complex2D &c)const{
+    return module(*this) > module(c);
 }

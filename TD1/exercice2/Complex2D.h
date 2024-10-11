@@ -31,6 +31,4 @@ public:
     bool operator >(const Complex2D &c)const;
 };
 
-
-
 #endif
