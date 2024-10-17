@@ -16,13 +16,13 @@ public:
 };
 
 template<typename T>
-MatrixNumerical<T>::MatrixNumerical(){
-    MatrixBase<T>();
+MatrixNumerical<T>::MatrixNumerical()
+{
 }
 
 template<typename T>
-MatrixNumerical<T>::MatrixNumerical(size_t _rows, size_t _cols){
-    MatrixBase<T>(_rows,_cols);
+MatrixNumerical<T>::MatrixNumerical(size_t _rows, size_t _cols):MatrixBase<T>(_rows,_cols){
+
 }
 
 #endif

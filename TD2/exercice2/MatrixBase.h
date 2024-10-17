@@ -62,6 +62,7 @@ void MatrixBase<T>::display(){
         }
         cout<<"\n";
     }
+    cout<<"-----------------------\n";
 }
 
 
