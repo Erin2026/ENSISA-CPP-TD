@@ -19,14 +19,50 @@ public:
     
     void addElement(size_t x, size_t y, T element);
     T getElement(size_t x, size_t y) const;
-    T getRows(size_t y) const;
-    T getCols(size_t x) const;
-    void display() const;
+    size_t getRows() const;
+    size_t getCols() const;
+    void display();
+};
+
+template <typename T>
+MatrixBase<T>::MatrixBase():
+data( 1, vector<T>(1)),rows(1),cols(1)
+{}
+
+template <typename T>
+MatrixBase<T>::MatrixBase(size_t _rows, size_t _cols):
+data( _rows, vector<T>(_cols)),rows(_rows),cols(_cols)
+{}
+
+template <typename T>
+void MatrixBase<T>::addElement(size_t x, size_t y, T element){
+    data[x][y] = element;
 }
 
 template <typename T>
-MatrixBase<T>::addElement(size_t x, size_t y, T element){
-    
+T MatrixBase<T>::getElement(size_t x, size_t y) const{
+    return data[x][y];
 }
+
+template <typename T>
+size_t MatrixBase<T>::getRows() const{
+    return rows;
+}
+
+template <typename T>
+size_t MatrixBase<T>::getCols() const{
+    return cols;
+}
+
+template <typename T>
+void MatrixBase<T>::display(){
+    for (int i=0; i<rows;i++){
+        for (int j=0; j<cols;j++){
+            cout<<data[i][j]<<"\t";
+        }
+        cout<<"\n";
+    }
+}
+
 
 #endif

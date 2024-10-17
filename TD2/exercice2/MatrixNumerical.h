@@ -4,18 +4,25 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "MatrixBase.h"
 using namespace std;
 
-class MatrixNumerical
+template<typename T>
+class MatrixNumerical : public MatrixBase<T>
 {
-private:
-    /* data */
 public:
-    MatrixNumerical(/* args */);
-    ~MatrixNumerical();
-
-    
+    MatrixNumerical();
+    MatrixNumerical(size_t _rows, size_t _cols);
 };
 
+template<typename T>
+MatrixNumerical<T>::MatrixNumerical(){
+    MatrixBase<T>();
+}
+
+template<typename T>
+MatrixNumerical<T>::MatrixNumerical(size_t _rows, size_t _cols){
+    MatrixBase<T>(_rows,_cols);
+}
 
 #endif
