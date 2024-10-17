@@ -27,12 +27,15 @@ template<typename T>
 MatrixNumerical<T>::MatrixNumerical(size_t _rows, size_t _cols):MatrixBase<T>(_rows,_cols){
 
 }
-
+/*
 template<typename T>
 T MatrixNumerical<T>::getSmaller(t_size i){
     MatrixNumerical<int> newMatrix = MatrixNumerical<int>(this.rows-1,this.cols-1)
     for (int j=0;j<this;j++){}
 }
+
+---> besoin de getSmaller pour la fonction récursive getDeterminant (elle permettra de calculer la matrice d'ordre n-1 pour que getDeterminant en calcule le déterminant.)
+*/
 
 /*
 template<typename T>
