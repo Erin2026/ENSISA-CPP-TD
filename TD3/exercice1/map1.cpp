@@ -1,4 +1,8 @@
-#include "map1.h"
+#include <iostream>
+#include <vector>
+#include <map>
+
+using namespace std;
 
 void countFrequencyBruteForce( const vector<int>& numbers ) {
     vector<int> done;
