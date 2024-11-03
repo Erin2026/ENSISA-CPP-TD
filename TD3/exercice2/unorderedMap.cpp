@@ -38,7 +38,7 @@ vector<int> twoSumOptimal(const vector<int>& nums,int target){
         }
     }
     cout << "aucune somme de couple ne permet d'avoir la valeur cible" << endl;
-    return {0,0};
+    return couple;
 }
 
 int main(){
