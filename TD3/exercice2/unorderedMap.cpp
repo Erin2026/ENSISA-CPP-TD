@@ -5,6 +5,8 @@ using namespace std;
 
 vector<int> twoSumBruteForce(const vector<int>& nums,int target){
     vector<int> couple;
+
+    /*parcours 2 à 2 des termes du vecteur*/
     for (int i=0;i<nums.size()-1;i++){
         for (int j=i;j<nums.size();j++){
             int sum = nums[i]+nums[j];
@@ -22,7 +24,7 @@ vector<int> twoSumOptimal(const vector<int>& nums,int target){
     vector<int> couple;
     unordered_map<int,int> umap;
 
-
+    /*transfert des termes du vecteur dans une unorderedmap*/
     for (int i=0;i<nums.size();i++){
         umap[nums[i]]=i;
     }
@@ -32,14 +34,16 @@ vector<int> twoSumOptimal(const vector<int>& nums,int target){
         if (umap.count(difference)!=0){
             couple.push_back(umap[difference]);
             couple.push_back(entry.second);
+            return couple;
         }
     }
-    return couple;
+    cout << "aucune somme de couple ne permet d'avoir la valeur cible" << endl;
+    return {0,0};
 }
 
 int main(){
     vector<int>nums={2,7,11,15};
-    int target=26;
+    int target=26;                  /*seg fault lorsqu'il n'y a aucun couple qui ne correspond*/
     vector<int> indicesBruteForce=twoSumBruteForce(nums,target);
     cout<<"BruteForceSolution:["
         <<indicesBruteForce[0]

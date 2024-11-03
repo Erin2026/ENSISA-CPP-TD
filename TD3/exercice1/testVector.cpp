@@ -2,6 +2,7 @@
 #include <algorithm> // librairie des fonctions sur le vector
 #include <iostream>
 using namespace std ;
+
 int main ( ) {
     // D e cl a r a t i o n d ’ un v e c t o r de t y p e i n t
     vector<int> v1 ;
