@@ -24,6 +24,8 @@ public:
     PokemonCard(string _cardName,string _pokemonType,string _familyName,int _evolutionLevel, int _maxHP, int _EnergyCost1, string _attackName1, int _damage1, int _EnergyCost2, string _attackName2, int _damage2);
 
     void displayInfo();
+    void pokemonAttacks();
+    void attachEnergyCard();
 };
 
 #endif

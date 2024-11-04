@@ -6,6 +6,7 @@
 #include <vector>
 #include <tuple>
 #include "card.h"
+#include "pokemon_card.h"
 using namespace std;
 
 class Player
@@ -18,7 +19,7 @@ protected:
 public:
     Player(string _name);
 
-    void addCardToBench(Card card);
+    void addCardToBench(Card *card);
     void activatePokemonCard(int number);
     void attachEnergyCard(int,int);
     void attack (int , int , Player person , int );

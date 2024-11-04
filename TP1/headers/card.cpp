@@ -1,3 +1,3 @@
 #include "card.h"
 
-Card::Card(string _CardName) : cardName(name) {}
+Card::Card(string _cardName) : cardName(_cardName) {}
