@@ -1,6 +1,5 @@
-#ifndef ENERGYCARD_H
-#define ENERGYCARD_H
-
+#ifndef ENERGY_CARD_H
+#define ENERGY_CARD_H
 
 #include <iostream>
 #include <string>
@@ -16,6 +15,8 @@ protected:
 
 public:
     EnergyCard(string _energyType);
+
+    void displayInfo();
 };
 
 #endif
