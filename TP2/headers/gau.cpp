@@ -2,7 +2,7 @@
 
 GaussianGenerator::GaussianGenerator(int seed, double standard_deviation_value, double mean_value):TimeSeriesGenerator(seed), standard_deviation(standard_deviation_value),mean(mean_value){}
 
-vector<double> generateTimeSeries(int size) override{
+vector<double> GaussianGenerator::generateTimeSeries(int size){
     vector<double> serie;
     serie.reserve(size);
 
@@ -16,9 +16,9 @@ vector<double> generateTimeSeries(int size) override{
         double z0 = sqrt(-2 * log(u1)) * cos(2.0 * M_PI* u2);
         double z1 = sqrt(-2 * log(u1)) * sin(2.0 * M_PI* u2);
 
-        serie.push_back(mean+z0*standard_deviation_value);
+        serie.push_back(mean+z0*standard_deviation);
         if (i+1<size){
-            serie.push_back(mean+z1*standard_deviation_value);
+            serie.push_back(mean+z1*standard_deviation);
         }
     }
     return serie;
