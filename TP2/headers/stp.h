@@ -1,9 +1,16 @@
 #ifndef STEPGENERATOR_H
 #define STEPGENERATOR_H
 
-class StepGenerator
-{
+#include <iostream>
+#include <string>
+#include <vector>
+#include <random>
+#include "tsg.h"
 
+using namespace std;
+
+class StepGenerator : public TimeSeriesGenerator
+{
 public:
     StepGenerator(int seed_value);
 

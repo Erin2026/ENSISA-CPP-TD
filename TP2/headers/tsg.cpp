@@ -1,4 +1,4 @@
-#include "TimeSeriesGenerator.h"
+#include "tsg.h"
 
 TimeSeriesGenerator::TimeSeriesGenerator():seed(0) {}
 

@@ -6,7 +6,7 @@
 #include <vector>
 #include <random>
 #include <cmath>
-#include "TimeSeriesGenerator.h"
+#include "tsg.h"
 
 using namespace std;
 
@@ -17,7 +17,7 @@ protected:
     double standard_deviation;
 
 public:
-    GaussianGenerator(int seed, double standard_deviation_value, double mean_value);
+    GaussianGenerator(int seed_value, double standard_deviation_value, double mean_value);
 
     vector<double> generateTimeSeries(int size) override;
 };

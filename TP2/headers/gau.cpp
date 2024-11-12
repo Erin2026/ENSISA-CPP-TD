@@ -1,6 +1,6 @@
-#include "GaussianGenerator.h"
+#include "gau.h"
 
-GaussianGenerator::GaussianGenerator(int seed, double standard_deviation_value, double mean_value):TimeSeriesGenerator(seed), standard_deviation(standard_deviation_value),mean(mean_value){}
+GaussianGenerator::GaussianGenerator(int seed_value, double standard_deviation_value, double mean_value):TimeSeriesGenerator(seed_value), standard_deviation(standard_deviation_value),mean(mean_value){}
 
 vector<double> GaussianGenerator::generateTimeSeries(int size){
     vector<double> serie;
@@ -20,6 +20,7 @@ vector<double> GaussianGenerator::generateTimeSeries(int size){
         if (i+1<size){
             serie.push_back(mean+z1*standard_deviation);
         }
+        
     }
     return serie;
 }

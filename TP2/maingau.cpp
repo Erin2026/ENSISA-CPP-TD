@@ -1,5 +1,4 @@
-#include "GaussianGenerator.h"
-#include "TimeSeriesGenerator.h"
+#include "headers/gau.h"
 
 using namespace std;
 
