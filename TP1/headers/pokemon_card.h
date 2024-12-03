@@ -1,31 +1,35 @@
-#ifndef POKEMONCARD_H
-#define POKEMONCARD_H
+#ifndef POKEMON_CARD_H
+#define POKEMON_CARD_H
 
-
-#include <iostream>
+#include "card.h"
 #include <string>
 #include <vector>
 #include <tuple>
-#include "Card.h"
-using namespace std;
 
-class PokemonCard : public Card
-{
-protected:
-    string pokemonType;
-    string familyName;
+class PokemonCard : public Card {
+private:
+    std::string pokemonType;
+    std::string familyName;
     int evolutionLevel;
     int maxHP;
     int hp;
-    vector<tuple<int,int,string,int>> attacks;
+    std::vector<std::tuple<int, int, std::string, int>> attacks;
 
 public:
-    PokemonCard(string _cardName,string _pokemonType,string _familyName,int _evolutionLevel, int _maxHP, int _EnergyCost, string _attackName, int _damage);
-    PokemonCard(string _cardName,string _pokemonType,string _familyName,int _evolutionLevel, int _maxHP, int _EnergyCost1, string _attackName1, int _damage1, int _EnergyCost2, string _attackName2, int _damage2);
-
-    void displayInfo();
-    void pokemonAttacks();
-    void attachEnergyCard();
+    PokemonCard(const std::string& name, const std::string& type, 
+                const std::string& family, int evolution, int maxHealth,
+                int attack1Cost, const std::string& attack1Desc, int attack1Damage,
+                int attack2Cost, const std::string& attack2Desc, int attack2Damage);
+    
+    void displayInfo() const override;
+    void attachEnergy(const std::string& energyType);
+    bool canUseAttack(int attackIndex) const;
+    int getAttackDamage(int attackIndex) const;
+    std::string getAttackName(int attackIndex) const;
+    void takeDamage(int damage);
+    void heal();
+    bool isAlive() const;
+    const std::string& getType() const;
 };
 
-#endif
+#endif // POKEMON_CARD_H

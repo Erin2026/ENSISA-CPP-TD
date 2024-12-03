@@ -1,18 +1,18 @@
 #ifndef CARD_H
 #define CARD_H
 
-#include <iostream>
 #include <string>
 
-using namespace std;
+class Card {
+protected:
+    std::string cardName;
 
-class Card
-{
 public:
-    string cardName;
-    Card(string _cardName);
-
-    virtual void displayInfo() = 0 ;
+    Card(const std::string& name);
+    virtual ~Card() = default;
+    
+    virtual void displayInfo() const = 0;
+    const std::string& getName() const;
 };
 
-#endif
+#endif // CARD_H

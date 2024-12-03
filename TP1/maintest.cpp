@@ -9,6 +9,5 @@ using namespace std ;
 
 int main () 
 {
-    Player player1("Hadi");
     return 0;
 }

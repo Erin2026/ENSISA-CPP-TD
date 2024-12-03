@@ -1,31 +1,30 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <iostream>
-#include <string>
-#include <vector>
-#include <tuple>
 #include "card.h"
 #include "pokemon_card.h"
-using namespace std;
+#include "energy_card.h"
+#include "trainer_card.h"
+#include <string>
+#include <vector>
 
-class Player
-{
-protected:
-    string name;
-    vector<Card*> benchCards;
-    vector<PokemonCard*> actionCards;
+class Player {
+private:
+    std::string playerName;
+    std::vector<Card*> benchCards;
+    std::vector<PokemonCard*> actionCards;
 
 public:
-    Player(string _name);
-
-    void addCardToBench(Card *card);
-    void activatePokemonCard(int number);
-    void attachEnergyCard(int,int);
-    void attack (int , int , Player person , int );
-    void useTrainer(int number);
-    void displayBench();
-    void displayAction();
+    explicit Player(const std::string& name);
+    ~Player();
+    
+    void addCardToBench(Card* card);
+    void activatePokemonCard(int benchIndex);
+    void attachEnergyCard(int benchIndex, int actionIndex);
+    void useTrainer(int benchIndex);
+    void displayBench() const;
+    void displayAction() const;
+    void attack(int attackerIndex, int attackIndex, Player& opponent, int targetIndex);
 };
 
-#endif
+#endif // PLAYER_H

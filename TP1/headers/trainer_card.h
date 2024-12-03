@@ -1,24 +1,17 @@
 #ifndef TRAINER_CARD_H
 #define TRAINER_CARD_H
 
-
-#include <iostream>
-#include <string>
-#include <vector>
-#include <tuple>
 #include "card.h"
-using namespace std;
+#include <string>
 
-class TrainerCard : public Card
-{
-protected:
-    string trainerEffect;
-    
+class TrainerCard : public Card {
+private:
+    std::string trainerEffect;
+
 public:
-    TrainerCard(string _name,string _trainerEffect);
-
-    void healAllActionPokemon();
-    void displayInfo();
+    TrainerCard(const std::string& name, const std::string& effect);
+    void displayInfo() const override;
+    const std::string& getEffect() const;
 };
 
-#endif
+#endif // TRAINER_CARD_H
